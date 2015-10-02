@@ -1,0 +1,106 @@
+module vendingmachine {
+		yang-version 1;
+		namespace "urn:opendaylight:params:xml:ns:yang:vendingmachine";
+		prefix "vendingmachine";
+		organization "Inocybe Technologies";
+		contact "Layth Alani <lalani@inocybe.com>";
+		description 
+			"YANG version of the vendingmachine-MIB.";
+		revision "2015-01-05" {
+			description "Initial revision of vendingmachine model.";
+		}
+		
+		identity vending-products {
+		 	description "different type of products that available in the vending machine.";
+		}
+		
+		identity snacks	{
+		base vendingmachine:vending-products;
+		description "Different Snacks";	
+		}
+		
+		identity juice {
+		base vending-products;
+		    description "Beverages water-coca-cola";
+		}
+		
+		identity water {
+			base vending-products;
+			description "the water bottle option.";
+		}
+		
+		identity sandwich {
+			base vending-products;
+			description "Sandwich";
+		}
+		
+		typedef DisplayString {
+		    type string {
+			length "0 .. 255";
+			}
+		    description
+		    	"YANG version of the SMIv2 DisplayString TEXTUAL-CONVENTION.";
+		    reference
+		    	"RFC 2575, section 2.";
+		}
+		
+		container vendingmachine {
+			presence
+				"Indicate that the Vending Machine service is available.";
+			description
+				"Top-level container for all vinding machine database abjects.";
+		
+		
+			leaf vendingmachine-manufacturer {
+				type DisplayString;
+				config false;
+				mandatory true;
+				description
+				  "this mane of the Vending Machine's manufacturer. Example XXX inc.";
+			}
+			
+			leaf vendingmachine-model-number {
+				type DisplayString;
+				config false;
+				mandatory true;
+				description
+				  "The name of the vinfing Machine model. Example three products machin.e";
+			}
+		
+			leaf vendingmachine-status {
+				type enumeration {
+					enum "empty" {
+				    	value 0;
+				 		 description
+				    		"the products are not available.";
+					}
+					
+					enum "availability" {
+				    	value 1; 
+				  	  description 
+				  		  "this indicate that the products is available.";
+					}	
+				}
+				
+				config false;
+				mandatory true;
+				description
+				    "this variable indicate the current status of the vanding Machine.";
+			}
+		
+			leaf number-of-products-available {
+				type uint32;
+				config false;
+				default 8;
+				description
+					"the number of Sandwich, water and juice available.";
+			}
+		
+			leaf number-of-products-leaft {
+				type uint32;
+				config false;
+				description
+					"the number of remaining Sandwich, water and juice.";
+			}
+		}
+	}
