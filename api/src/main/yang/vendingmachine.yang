@@ -6,7 +6,7 @@ module vendingmachine {
 		contact "Layth Alani <lalani@inocybe.com>";
 		description 
 			"YANG version of the vendingmachine-MIB.";
-		revision "2015-01-05" {
+		revision "2014-12-10" {
 			description "Initial revision of vendingmachine model.";
 		}
 		

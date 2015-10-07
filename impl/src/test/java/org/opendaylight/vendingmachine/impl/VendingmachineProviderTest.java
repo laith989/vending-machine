@@ -9,6 +9,7 @@ package org.opendaylight.vendingmachine.impl;
 
 import org.junit.Test;
 import org.opendaylight.controller.sal.binding.api.BindingAwareBroker;
+import org.opendaylight.vendingmachine.impl.VendingmachineProvider;
 
 import static org.mockito.Mockito.mock;
 
