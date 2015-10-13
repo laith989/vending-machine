@@ -24,7 +24,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
             <name>binding-osgi-broker</name>
           </broker>
           <rpc-registry>
-          	<TYPE xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">binding:binding-rpc-registry</TYPE>type>
+          	<type xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">binding:binding-rpc-registry</type>
           	<name>binding-rpc-broker</name>
           </rpc-registry>
         </module>
