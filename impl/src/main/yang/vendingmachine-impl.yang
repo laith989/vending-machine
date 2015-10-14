@@ -14,7 +14,7 @@ module vendingmachine-impl {
             "Initial revision";
     }
 
-    identity vendingmachine {
+    identity vendingmachine-impl {
         base config:module-type;
         config:java-name-prefix Vendingmachine;
     }
