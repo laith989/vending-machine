@@ -18,7 +18,8 @@ public class VendingmachineProvider implements BindingAwareProvider, AutoCloseab
 
     @Override
     public void onSessionInitiated(ProviderContext session) {
-        LOG.info("VendingmachineProvider Session Initiated");
+        //LOG.info("VendingmachineProvider Session Initiated");
+    	LOG.info("Hello World!");
     }
 
     @Override

@@ -30,14 +30,14 @@ module vendingmachine-impl {
                     }
                 }
             }
-        }
-    }
-    container rpc-registry{
-    	uses config:service-ref{
-    		refine type {
-    			mandatory true;
-    			config:required-identity md-sal-binding:binding-rpc-registry;
+            container rpc-registry{
+    			uses config:service-ref{
+    				refine type {
+    					mandatory true;
+    					config:required-identity md-sal-binding:binding-rpc-registry;
+    				}
+    			}
     		}
-    	}
-    }
-}
+         }
+     }
+  }
