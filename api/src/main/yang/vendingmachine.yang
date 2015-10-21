@@ -103,4 +103,35 @@ module vendingmachine {
 					"the number of remaining Sandwich, water and juice.";
 			}
 		}
+		rpc make-order{
+			description
+				"Chose the item that you like to buy. an notification should be send 
+				to show thw availibility of that item. error massegae will be return 
+				if the item not availablie";
+			
+			input {
+				leaf numberofitems{
+					type uint32{
+						range "1 .. 10";
+					}
+					default '1';
+					description 
+						"This variable controls the number of items that orderd. The order should be 
+						1 to 10 items can be bought at one. The default number is 1";
+				}
+				
+				leaf itemtype{
+					type identityref {
+						base vendingmachine:vending-products;
+					}
+					defsult 'water';
+					description 
+						"This variable descripte the type of products.Vending Machine
+						uses this variable to send the proper product";
+					
+				}
+			}
+		}
+	
 	}
+
