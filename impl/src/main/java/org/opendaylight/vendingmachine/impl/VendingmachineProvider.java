@@ -25,6 +25,9 @@ import org.opendaylight.yangtools.yang.binding.InstanceIdentifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.util.concurrent.FutureCallback;
+import com.google.common.util.concurrent.Futures;
+
 
 public class VendingmachineProvider implements BindingAwareProvider, AutoCloseable, DataChangeListener {
 	
@@ -80,7 +83,7 @@ public class VendingmachineProvider implements BindingAwareProvider, AutoCloseab
     	WriteTransaction tx = dataProvider.newWriteOnlyTransaction();
     	tx.put(LogicalDatastoreType.OPERATIONAL, VENDINGMACHINE_IID, vendingmachine);
     	
-    	/*Futures.addCallback(tx.submit(), new FutureCallback<Void>(){
+    	Futures.addCallback(tx.submit(), new FutureCallback<Void>(){
     		@Override
     		public void onSuccess (final Void result){
     			LOG.info("initVendingmachineOperational: Transaction succeeded");
@@ -90,7 +93,7 @@ public class VendingmachineProvider implements BindingAwareProvider, AutoCloseab
     			LOG.info("initVendingmachineOperational: Transaction failed");
     		}
     		
-    	});*/
+    	});
     	LOG.error("initVendingmachineOperational: operational status populated: {}", vendingmachine);
     }
     
