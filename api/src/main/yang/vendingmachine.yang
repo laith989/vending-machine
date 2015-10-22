@@ -124,13 +124,45 @@ module vendingmachine {
 					type identityref {
 						base vendingmachine:vending-products;
 					}
-					defsult 'water';
+					default 'water';
 					description 
 						"This variable descripte the type of products.Vending Machine
 						uses this variable to send the proper product";
 					
 				}
 			}
+		}
+		
+		rpc refull-item{
+			description 
+			"Refull the Vending Machine with the varitouse products.";
+			
+			input{
+				
+				leaf quantityofproductprovide {
+					type uint32;
+					description 
+						"the amount of products to re-full.";
+					
+				}
+			}
+				
+		}
+		
+		notification vendingmachineOutOfItems{
+			description
+				"show that the vendingmachine is out of products.";
+		}
+		
+		notification refullvendingmachine{
+			description
+				"No products.";
+			leaf quantityofproduct{
+			type uint32;
+			description 
+				"the amount of products that was re-full.";
+			}
+			
 		}
 	
 	}
