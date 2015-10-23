@@ -330,7 +330,7 @@ public class VendingmachineProvider implements BindingAwareProvider, Vendingmach
     		
     		try {
     			long maxOrderItems = VendingmachineProvider.this.maxOrderItems.get();
-    			Thread.sleep(5);
+    			Thread.sleep(2);
     		}
     		catch (InterruptedException e){
     			LOG.info("Interrupted while making the order");
@@ -360,7 +360,18 @@ public class VendingmachineProvider implements BindingAwareProvider, Vendingmach
     		
     		return null;
     	}
-    	
+    	    	
+    }
+    
+    /*@Override
+    public void clearOrdersMade(){
+    	LOG.info("clearOrdersMade");
+    	ordersMade.set(0);
+    }*/
+    
+ //  @Override
+    public Long getOrdersMade(){
+    	return ordersMade.get();
     }
     
 }
